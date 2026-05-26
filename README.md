@@ -80,27 +80,23 @@ n7/
 
 ## Page Sections
 
-| Section | Description |
-|---------|-------------|
-| Header | Sticky nav with logo, links, and request demo CTA |
-| Hero | Headline, subtext, and call-to-action with background imagery |
-| Solutions | Overview of all N7 banking solutions |
-| Core Banking | Core banking capabilities and highlights |
-| Paperless CTA | Promotional banner for paperless transformation |
-| Digital Banking | Feature grid with phone mockups and bullet lists |
-| Insights | Latest blog posts and industry articles |
-| Case Studies | Client testimonials and success stories |
-| Footer | Office locations, navigation, socials, and copyright |
+| Section         | Description                                                   |
+| --------------- | ------------------------------------------------------------- |
+| Header          | Sticky nav with logo, links, and request demo CTA             |
+| Hero            | Headline, subtext, and call-to-action with background imagery |
+| Solutions       | Overview of all N7 banking solutions                          |
+| Core Banking    | Core banking capabilities and highlights                      |
+| Paperless CTA   | Promotional banner for paperless transformation               |
+| Digital Banking | Feature grid with phone mockups and bullet lists              |
+| Insights        | Latest blog posts and industry articles                       |
+| Case Studies    | Client testimonials and success stories                       |
+| Footer          | Office locations, navigation, socials, and copyright          |
 
 ## Brand Colors
 
-| Name | Hex | Usage |
-|------|-----|-------|
-| Cyan | `#00B4FD` | Primary accent, gradients, links |
-| Blue | `#003ACE` | Gradient end, deep accent |
-| Dark | `#021015` | Footer background, dark surfaces |
-| Light | `#eaf8ff` | Section backgrounds |
-
-## License
-
-Private — Linktia Infosystems Limited.
+| Name  | Hex       | Usage                            |
+| ----- | --------- | -------------------------------- |
+| Cyan  | `#00B4FD` | Primary accent, gradients, links |
+| Blue  | `#003ACE` | Gradient end, deep accent        |
+| Dark  | `#021015` | Footer background, dark surfaces |
+| Light | `#eaf8ff` | Section backgrounds              |
