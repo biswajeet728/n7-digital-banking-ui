@@ -1,5 +1,6 @@
 import { FiArrowRight, FiCheck } from "react-icons/fi";
 import { useMediaQuery } from "usehooks-ts";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 const features = [
   "Customer-On Boarding",
@@ -37,6 +38,9 @@ function CoreBanking() {
   const isBelow1280 = useMediaQuery("(max-width: 1279px)");
   const isAtLeast1310 = useMediaQuery("(min-width: 1310px)");
   const isBetween1280And1309 = !isBelow1280 && !isAtLeast1310;
+
+  const [topRef, topVisible] = useScrollReveal();
+  const [bottomRef, bottomVisible] = useScrollReveal();
 
   return (
     <section
@@ -77,7 +81,10 @@ function CoreBanking() {
       ) : null}
 
       <div className="relative z-10 mx-auto w-full max-w-307.5 px-5 py-16 sm:px-8 sm:py-20 lg:px-6 lg:py-0">
-        <div className="max-w-130 text-center sm:mx-auto lg:mx-0 lg:pt-19 lg:text-left min-[1300px]:max-w-152.5">
+        <div
+          ref={topRef}
+          className={`max-w-130 text-center sm:mx-auto lg:mx-0 lg:pt-19 lg:text-left min-[1300px]:max-w-152.5 ${topVisible ? "animate-[fade-up_0.7s_ease-out_both]" : "opacity-0 translate-y-4"}`}
+        >
           <h2 className="text-[34px] font-normal leading-[1.05] text-[#edf7ff] sm:text-[42px] lg:text-[46px] min-[1300px]:text-[54px]">
             A complete cloud-based
             <br />
@@ -91,17 +98,17 @@ function CoreBanking() {
           </p>
 
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start lg:items-start">
-            <button className="flex h-10.5 w-full max-w-44 items-center justify-center rounded-[7px] bg-linear-to-r from-[#00B4FD] to-[#003ACE] font-mono text-[11px] font-light uppercase tracking-widest text-white transition min-[1300px]:h-11.5 min-[1300px]:max-w-49 min-[1300px]:text-[12px]">
+            <button className="flex h-10.5 w-full max-w-44 items-center justify-center rounded-[7px] bg-linear-to-r from-[#00B4FD] to-[#003ACE] font-mono text-[11px] font-light uppercase tracking-widest text-white transition-all duration-300 hover:shadow-[0_0_24px_rgba(0,180,253,0.35)] min-[1300px]:h-11.5 min-[1300px]:max-w-49 min-[1300px]:text-[12px]">
               Request Demo
             </button>
           </div>
           <a
             href="#"
-            className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#00B4FD] transition-opacity hover:opacity-80 sm:text-[10px] mt-6"
+            className="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#00B4FD] transition-opacity hover:opacity-80 sm:text-[10px] mt-6"
           >
             <span className="underline underline-offset-[6px]">Learn</span>
             More
-            <FiArrowRight size={17} />
+            <FiArrowRight size={17} className="transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </div>
 
@@ -127,6 +134,7 @@ function CoreBanking() {
         ) : null}
 
         <div
+          ref={bottomRef}
           className={`mx-auto max-w-130 ${
             isBelow1280
               ? "mt-20 sm:mt-24"
@@ -135,7 +143,7 @@ function CoreBanking() {
                 : isBetween1280And1309
                   ? "mt-37.5 ml-auto mr-17.5"
                   : ""
-          }`}
+          } ${bottomVisible ? "animate-[fade-up_0.7s_ease-out_both]" : "opacity-0 translate-y-4"}`}
         >
           <h3 className="text-center text-[21px] font-normal leading-[1.22] text-[#edf7ff] sm:text-[22px] lg:text-left min-[1300px]:text-[27px]">
             Run a more efficient, flexible,and digitally

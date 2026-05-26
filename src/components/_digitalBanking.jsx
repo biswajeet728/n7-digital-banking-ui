@@ -1,5 +1,6 @@
 import { FiArrowRight, FiCheck } from "react-icons/fi";
 import { useMediaQuery } from "usehooks-ts";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 const sections = [
   {
@@ -65,6 +66,9 @@ function DigitalBanking() {
   const isAtLeast1310 = useMediaQuery("(min-width: 1310px)");
   const isBetween1280And1309 = !isBelow1280 && !isAtLeast1310;
 
+  const [topRef, topVisible] = useScrollReveal();
+  const [gridRef, gridVisible] = useScrollReveal();
+
   return (
     <section className="overflow-hidden bg-[#eaf8ff] text-[#06151d]">
       <div className="flex h-14 w-full items-center justify-between gap-2 overflow-hidden border-b border-[#d7ebf5] bg-white px-3 text-[14px] font-semibold text-[#071018] sm:h-16 sm:gap-3 sm:px-4 sm:text-[16px] md:h-18 md:gap-5 md:px-7 md:text-[24px]">
@@ -123,7 +127,10 @@ function DigitalBanking() {
           aria-hidden="true"
         />
 
-        <div className="relative z-10 grid grid-cols-1 gap-14 md:grid-cols-[0.8fr_1.2fr] md:gap-10 lg:gap-10">
+        <div
+          ref={topRef}
+          className={`relative z-10 grid grid-cols-1 gap-14 md:grid-cols-[0.8fr_1.2fr] md:gap-10 lg:gap-10 ${topVisible ? "animate-[fade-up_0.7s_ease-out_both]" : "opacity-0 translate-y-4"}`}
+        >
           <div className="max-w-90 text-center sm:mx-auto md:mx-0 md:text-left">
             <h2 className="text-[28px] font-normal leading-[1.08] text-[#07151d] sm:text-[34px] md:text-[38px] lg:text-[42px]">
               Digital banking
@@ -134,7 +141,7 @@ function DigitalBanking() {
               N7 helps your financial institution improve the client experience,
               automate and optimize procedures
             </p>
-            <button className="mt-7 flex h-10.5 w-full max-w-43.5 items-center justify-center rounded-[7px] bg-linear-to-r from-[#00B4FD] to-[#003ACE] font-mono text-[11px] font-light uppercase tracking-widest text-white transition max-md:mx-auto">
+            <button className="mt-7 flex h-10.5 w-full max-w-43.5 items-center justify-center rounded-[7px] bg-linear-to-r from-[#00B4FD] to-[#003ACE] font-mono text-[11px] font-light uppercase tracking-widest text-white transition hover:shadow-[0_0_24px_rgba(0,180,253,0.35)] max-md:mx-auto">
               Request Demo
             </button>
             <a
@@ -156,6 +163,7 @@ function DigitalBanking() {
                 src="/assets/images/iPhone 13 Pro.png"
                 alt="Digital banking home screen"
                 draggable="false"
+                style={{ animation: "float 6s ease-in-out infinite" }}
               />
             </div>
 
@@ -185,6 +193,7 @@ function DigitalBanking() {
                 src="/assets/images/iPhone 13 Pro-1.png"
                 alt="Digital banking analytics screen"
                 draggable="false"
+                style={{ animation: "float 6s ease-in-out 1s infinite" }}
               />
             </div>
 
@@ -210,7 +219,7 @@ function DigitalBanking() {
         </div>
       </div>
 
-      <div className="relative mx-auto w-full max-w-307.5 mb-10 px-4 py-5 sm:px-6 lg:px-8">
+      <div ref={gridRef} className={`relative mx-auto w-full max-w-307.5 mb-10 px-4 py-5 sm:px-6 lg:px-8 ${gridVisible ? "animate-[fade-up_0.7s_ease-out_both]" : "opacity-0 translate-y-4"}`}>
         <div className="mx-auto w-full max-w-307.5">
           <div className="relative isolate overflow-hidden rounded-[14px] bg-[linear-gradient(90deg,#031E2A_0%,#031E2A_17%,#000D12_42%)] px-5 py-10 sm:rounded-[18px] sm:px-10 sm:py-14 md:px-12 lg:min-h-105 lg:px-14 lg:py-0">
             <img
@@ -249,7 +258,7 @@ function DigitalBanking() {
                 <button className="flex h-10.5 w-full max-w-46 items-center justify-center rounded-[7px] border border-[#c1d5dd]/80 bg-transparent font-mono text-[11px] font-light uppercase tracking-widest text-white transition hover:bg-white hover:text-[#001216]">
                   Contact Us
                 </button>
-                <button className="flex h-10.5 w-full max-w-46.5 items-center justify-center rounded-[7px] bg-linear-to-r from-[#00B4FD] to-[#003ACE] font-mono text-[11px] font-light uppercase tracking-widest text-white transition">
+                <button className="flex h-10.5 w-full max-w-46.5 items-center justify-center rounded-[7px] bg-linear-to-r from-[#00B4FD] to-[#003ACE] font-mono text-[11px] font-light uppercase tracking-widest text-white transition-all duration-300 hover:shadow-[0_0_24px_rgba(0,180,253,0.35)]">
                   Request Demo
                 </button>
               </div>

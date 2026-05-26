@@ -22,20 +22,20 @@ function Hero() {
 
       <div className="mx-auto grid w-full max-w-307.5 grid-cols-1 items-center gap-10 px-5 sm:px-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(460px,1fr)] lg:gap-16 lg:px-6">
         <div className="mx-auto max-w-140 text-center lg:mx-0 lg:max-w-130 lg:text-left">
-          <h1 className="text-[40px] font-normal leading-[1.04] text-[#edf7ff] sm:text-[48px] lg:text-[54px]">
+          <h1 className="text-[40px] font-normal leading-[1.04] text-[#edf7ff] sm:text-[48px] lg:text-[54px]" style={{ animation: "fade-up 0.7s ease-out both" }}>
             The new foundation
             <br />
             of modern banking
           </h1>
 
-          <p className="mx-auto mt-6 max-w-110 text-[13px] font-light leading-[1.6] text-[#9eb1bb] sm:text-[15px] lg:mx-0 lg:text-[16px]">
+          <p className="mx-auto mt-6 max-w-110 text-[13px] font-light leading-[1.6] text-[#9eb1bb] sm:text-[15px] lg:mx-0 lg:text-[16px]" style={{ animation: "fade-up 0.7s ease-out 0.15s both" }}>
             We drive innovation and growth, provide seamless{" "}
             <br className="hidden lg:block" /> customer experience and
             operational excellence
           </p>
 
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4 lg:mt-10 lg:justify-start">
-            <button className="flex h-11 w-full max-w-46.5 items-center justify-center rounded-[7px] bg-linear-to-r from-[#00B4FD] to-[#003ACE] font-mono text-[12px] font-light uppercase tracking-widest text-white transition">
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4 lg:mt-10 lg:justify-start" style={{ animation: "fade-up 0.7s ease-out 0.3s both" }}>
+            <button className="flex h-11 w-full max-w-46.5 items-center justify-center rounded-[7px] bg-linear-to-r from-[#00B4FD] to-[#003ACE] font-mono text-[12px] font-light uppercase tracking-widest text-white transition-all duration-300 hover:shadow-[0_0_24px_rgba(0,180,253,0.35)]">
               Request Demo
             </button>
             <button className="flex h-11 w-full max-w-46 items-center justify-center rounded-[7px] border border-[#c1d5dd]/80 bg-transparent font-mono text-[12px] font-light uppercase tracking-widest text-white transition hover:bg-white hover:text-[#001216]">
@@ -44,12 +44,13 @@ function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto mt-2 flex w-full max-w-155 justify-center lg:-mr-6 lg:mt-3 lg:max-w-none lg:justify-end">
+        <div className="relative mx-auto mt-2 flex w-full max-w-155 justify-center lg:-mr-6 lg:mt-3 lg:max-w-none lg:justify-end" style={{ animation: "fade-up 0.8s ease-out 0.4s both" }}>
           <img
             className="w-full max-w-115 select-none sm:w-[86%] lg:w-140 lg:max-w-none"
             src="/assets/images/hero-banner.png"
             alt="Digital banking dashboard preview"
             draggable="false"
+            style={{ animation: "float 5s ease-in-out infinite" }}
           />
         </div>
       </div>
@@ -58,7 +59,7 @@ function Hero() {
         <p className="font-open-sans text-[14px] font-normal leading-none text-[#a8b4bc]">
           Trusted By:
         </p>
-        <div className="mt-4 flex flex-wrap items-center justify-center gap-y-4 opacity-80 sm:gap-x-5 lg:justify-start">
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-y-4 opacity-80 sm:gap-x-5 lg:justify-start" style={{ animation: "fade-in 0.8s ease-out 0.6s both" }}>
           {companyLogos.map((logo) => (
             <div className="flex items-center gap-1">
               <img

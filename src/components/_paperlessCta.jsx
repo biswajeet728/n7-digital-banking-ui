@@ -1,4 +1,8 @@
+import useScrollReveal from "../hooks/useScrollReveal";
+
 function PaperlessCta({ bgColorEnabled = true }) {
+  const [ref, visible] = useScrollReveal();
+
   return (
     <section
       className={
@@ -9,7 +13,8 @@ function PaperlessCta({ bgColorEnabled = true }) {
     >
       <div className="mx-auto w-full max-w-307.5">
         <div
-          className={`relative isolate overflow-hidden rounded-[14px] px-5 py-10 sm:rounded-[18px] sm:px-10 sm:py-14 md:px-12 lg:min-h-87.5 lg:px-14 lg:py-0 ${bgColorEnabled ? "bg-[linear-gradient(90deg,#031E2A_0%,#031E2A_17%,#000D12_42%)]" : ""}`}
+          ref={ref}
+          className={`relative isolate overflow-hidden rounded-[14px] px-5 py-10 sm:rounded-[18px] sm:px-10 sm:py-14 md:px-12 lg:min-h-87.5 lg:px-14 lg:py-0 ${bgColorEnabled ? "bg-[linear-gradient(90deg,#031E2A_0%,#031E2A_17%,#000D12_42%)]" : ""} ${visible ? "animate-[fade-up_0.7s_ease-out_both]" : "opacity-0 translate-y-4"}`}
         >
           {bgColorEnabled && (
             <img
@@ -40,7 +45,7 @@ function PaperlessCta({ bgColorEnabled = true }) {
               <button className="flex h-10.5 w-full max-w-46 items-center justify-center rounded-[7px] border border-[#c1d5dd]/80 bg-transparent font-mono text-[11px] font-light uppercase tracking-widest text-white transition hover:bg-white hover:text-[#001216]">
                 Contact Us
               </button>
-              <button className="flex h-10.5 w-full max-w-46.5 items-center justify-center rounded-[7px] bg-linear-to-r from-[#00B4FD] to-[#003ACE] font-mono text-[11px] font-light uppercase tracking-widest text-white transition">
+              <button className="flex h-10.5 w-full max-w-46.5 items-center justify-center rounded-[7px] bg-linear-to-r from-[#00B4FD] to-[#003ACE] font-mono text-[11px] font-light uppercase tracking-widest text-white transition-all duration-300 hover:shadow-[0_0_24px_rgba(0,180,253,0.35)]">
                 Request Demo
               </button>
             </div>

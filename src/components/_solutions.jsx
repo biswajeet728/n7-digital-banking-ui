@@ -1,4 +1,5 @@
 import { FiArrowRight } from "react-icons/fi";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 const solutions = [
   {
@@ -36,12 +37,18 @@ const solutions = [
 ];
 
 function Solutions() {
+  const [leftRef, leftVisible] = useScrollReveal();
+  const [rightRef, rightVisible] = useScrollReveal();
+
   return (
     <section className="relative overflow-hidden bg-[#000d12] pb-24 text-white lg:pb-32">
       <div className="pointer-events-none absolute -right-40 top-35 h-130 w-110 rounded-full bg-[#003768]/35 blur-[120px]" />
 
       <div className="mx-auto grid w-full max-w-307.5 grid-cols-1 gap-14 px-5 sm:px-8 lg:grid-cols-[minmax(260px,0.72fr)_1.55fr] lg:gap-24 lg:px-6">
-        <div className="lg:pt-2">
+        <div
+          ref={leftRef}
+          className={`lg:pt-2 ${leftVisible ? "animate-[fade-up_0.7s_ease-out_both]" : "opacity-0 translate-y-4"}`}
+        >
           <h2 className="max-w-97.5 text-[28px] font-normal leading-[1.06] text-[#f0f7fb] sm:text-[34px] lg:text-[30px]">
             All of our solutions are
             <br className="hidden sm:block" />
@@ -53,15 +60,18 @@ function Solutions() {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 gap-x-20 gap-y-16 sm:grid-cols-2 lg:gap-y-18">
+        <div
+          ref={rightRef}
+          className={`grid grid-cols-1 gap-x-20 gap-y-16 sm:grid-cols-2 lg:gap-y-18 ${rightVisible ? "animate-[fade-up_0.7s_ease-out_0.15s_both]" : "opacity-0 translate-y-4"}`}
+        >
           {solutions.map((solution, index) => (
             <article
               key={solution.title}
-              className={
+              className={`transition-transform duration-300 hover:-translate-y-1 ${
                 index === solutions.length - 1
                   ? "sm:col-start-1 relative"
                   : "relative"
-              }
+              }`}
             >
               <div className="flex min-h-10.5 items-start justify-between gap-4">
                 <img
@@ -86,11 +96,11 @@ function Solutions() {
 
               <a
                 href="#"
-                className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#00B4FD] transition-opacity hover:opacity-80 sm:text-[10px] mt-6"
+                className="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#00B4FD] transition-opacity hover:opacity-80 sm:text-[10px] mt-6"
               >
                 <span className="underline underline-offset-[6px]">Learn</span>
                 More
-                <FiArrowRight size={15} />
+                <FiArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
               </a>
             </article>
           ))}

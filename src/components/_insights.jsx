@@ -1,10 +1,11 @@
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 function InsightCard({ featured = false, title, author, date }) {
   return (
     <article
-      className={`rounded-[22px] border border-white/5 bg-[#07181c] shadow-[0_18px_50px_rgba(0,0,0,0.28)] ${
+      className={`rounded-[22px] border border-white/5 bg-[#07181c] shadow-[0_18px_50px_rgba(0,0,0,0.28)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_60px_rgba(0,0,0,0.35)] ${
         featured ? "p-5 lg:p-6" : "p-5 lg:p-6"
       }`}
     >
@@ -58,9 +59,14 @@ function InsightCard({ featured = false, title, author, date }) {
 }
 
 function Insights() {
+  const [ref, visible] = useScrollReveal();
+
   return (
     <section className="relative overflow-hidden min-h-screen bg-[#031116] px-4 py-10 text-white sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-340">
+      <div
+        ref={ref}
+        className={`mx-auto max-w-340 ${visible ? "animate-[fade-up_0.7s_ease-out_both]" : "opacity-0 translate-y-4"}`}
+      >
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.35fr] lg:items-start xl:gap-10">
           {/* Left hero */}
           <div className="relative pt-2 lg:sticky lg:top-10 isolate">
@@ -111,11 +117,11 @@ function Insights() {
             <div className="flex justify-start sm:justify-end pt-1">
               <a
                 href="#"
-                className="inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.24em] text-[#16b8ff] transition-opacity hover:opacity-80"
+                className="group inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.24em] text-[#16b8ff] transition-opacity hover:opacity-80"
               >
                 <span className="underline underline-offset-7">Read</span> all
                 insights
-                <FiArrowRight className="h-4 w-4" />
+                <FiArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </a>
             </div>
           </div>

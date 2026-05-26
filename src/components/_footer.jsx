@@ -1,5 +1,6 @@
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 const solutions = [
   "Core Banking CB7",
@@ -37,6 +38,8 @@ function FooterLink({ text }) {
 }
 
 function Footer() {
+  const [ref, visible] = useScrollReveal();
+
   return (
     <footer className="relative overflow-hidden px-5 pb-8 pt-12 text-white sm:px-8 sm:pt-14 md:pb-10 lg:px-12 lg:pt-16">
       {/* Glow */}
@@ -51,7 +54,10 @@ function Footer() {
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-345">
+      <div
+        ref={ref}
+        className={`relative z-10 mx-auto max-w-345 ${visible ? "animate-[fade-up_0.7s_ease-out_both]" : "opacity-0 translate-y-4"}`}
+      >
         <div className="grid gap-y-10 sm:gap-y-12 lg:grid-cols-[minmax(280px,420px)_1fr] lg:gap-x-16">
           {/* Left Logo */}
           <div>

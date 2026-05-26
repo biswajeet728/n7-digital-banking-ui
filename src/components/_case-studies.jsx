@@ -1,5 +1,6 @@
 import React from "react";
 import { FiArrowLeft, FiArrowRight, FiZap } from "react-icons/fi";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 function CaseStudyCard({ active = false }) {
   return (
@@ -55,9 +56,11 @@ function CaseStudyCard({ active = false }) {
 }
 
 function CaseStudies() {
+  const [ref, visible] = useScrollReveal();
+
   return (
     <section className="overflow-hidden bg-[#021015] px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-      <div className="mx-auto max-w-7xl">
+      <div ref={ref} className={`mx-auto max-w-7xl ${visible ? "animate-[fade-up_0.7s_ease-out_both]" : "opacity-0 translate-y-4"}`}>
         {/* Heading */}
         <div className="mb-10 text-center sm:mb-14 lg:mb-16">
           <h2 className="text-[30px] font-normal tracking-[-0.04em] text-[#eef6f8] sm:text-[42px] lg:text-[56px]">
@@ -106,11 +109,11 @@ function CaseStudies() {
           {/* View all */}
           <a
             href="#"
-            className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#00B4FD] transition-opacity hover:opacity-80 sm:text-[12px]"
+            className="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-[#00B4FD] transition-opacity hover:opacity-80 sm:text-[12px]"
           >
             <span className="underline underline-offset-[6px]">View</span>
             all
-            <FiArrowRight />
+            <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </div>
       </div>
